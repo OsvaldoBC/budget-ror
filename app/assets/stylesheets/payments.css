@@ -39,6 +39,10 @@
   
   .add-payment-button {
     margin-top: 20px;
+    background-color: #5fb523;
+    text-align: center;
+    text-decoration: white;
+
   }
 
   /* Add style to payment new */
@@ -91,3 +95,4 @@
 .form-actions {
   text-align: right;
 }
+

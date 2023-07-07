@@ -44,8 +44,9 @@
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #333;
+    color:white;
     text-decoration: none;
+    background-color: #5fb523;
   }
 
   /* Add style to categories new */
@@ -78,11 +79,12 @@
   
   .form-actions {
     text-align: center;
+    background-color: #5fb523;
   }
   
   .submit-button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color:#5fb523;
     color: #fff;
     border: none;
     border-radius: 5px;
