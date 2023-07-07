@@ -149,6 +149,7 @@ input {
 
 .nav-link {
   color: #fff;
+  text-decoration: none;
 }
 
 .nav-item {
