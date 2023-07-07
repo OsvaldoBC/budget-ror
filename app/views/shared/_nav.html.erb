@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-wrapper">
-    <%= link_to "<-- ", request.referrer, class: "nav-link" %>
+  <%= link_to raw('<p>Back: &#8592;</p>'), request.referrer, class: "nav-link" %>
     <%= yield(:navbar_title) %>
     <div class="navbarlinks">
       <ul class="navbar-ul">
