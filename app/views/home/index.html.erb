@@ -1,6 +1,6 @@
-<div class="app-title"
-<% provide(:title, "My Budget APP") %>
-</div>
+<% content_for :navbar_title, 'My Expenses APP'.upcase %>
+
+
 
 <div class="buttons">
 <%= link_to "LOG IN", new_user_session_path, class:"button-login"%> <br>

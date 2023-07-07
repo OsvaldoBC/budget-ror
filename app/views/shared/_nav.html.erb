@@ -1,6 +1,7 @@
 <nav class="navbar">
   <div class="navbar-wrapper">
-    <%= link_to "<-", root_path, class: "nav-link nav-title" %>
+    <%= link_to "<--  My Expenses APP", root_path, class: "nav-link" %>
+    <%= yield(:navbar_title) %>
     <div class="navbarlinks">
       <ul class="navbar-ul">
       <% if current_user %>
