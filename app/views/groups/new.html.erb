@@ -1,0 +1,31 @@
+<% provide(:title, "New Category".upcase) %>
+
+<div class="new-category-form">
+  <%= form_with model: @group, class: "category-form" do |form| %>
+    <% if @group.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+        <ul>
+          <% @group.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-field">
+      <%= form.text_field :name, placeholder: "Name", class: "input-field" %>
+    </div>
+    
+    <div class="form-field">
+      <%= form.url_field :icon, placeholder: "Icon (URL)", class: "input-field" %>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit 'Create Category', class: "submit-button" %>
+    </div>
+  <% end %>
+</div>
+
+

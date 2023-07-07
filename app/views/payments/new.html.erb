@@ -1,0 +1,50 @@
+<% provide(:title, "New Payment".upcase) %>
+<% provide(:link, group_payments_path(params[:group_id])) %>
+
+<div class="payment-form">
+  <%= form_with(model: @payment, url: group_payments_path(params[:group_id])) do |form| %>
+    <% if @payment.errors.any? %>
+      <div class="payment-errors">
+        <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+        <ul>
+          <% @payment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-field">
+      <%= form.text_field :name,
+                      class: "input",
+                      required: true,
+                      placeholder: "Name" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.number_field :amount,
+                        step: :any,
+                        required: true,
+                        placeholder: "Amount ($)",
+                        class: "input px-3" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label "Choose Categories (at least one):", class: "label" %>
+      <% @groups.each do |item| %>
+        <div class="category-field">
+          <%= check_box_tag "payment[groups][]",
+          item.id,
+          item.id == @group.id,
+          class: "checkbox" %>
+          <%= form.label item.name, class: "checkbox" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

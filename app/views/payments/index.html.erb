@@ -1,0 +1,35 @@
+
+<% content_for :navbar_title, 'Expenses'.upcase %>
+
+<section class="payments-section">
+  <div class="payments-total">
+    <small>Payments total: <%= number_to_currency(@payments.sum(:amount)) %></small>
+  </div>
+
+  <% unless @payments.present? %>
+    <div class="no-payments">
+      <p>You have no payments yet, start by adding one using the button at the bottom</p>
+    </div>
+  <% end %>
+
+  <% @payments.each do |payment| %>
+    <div class="payment">
+      <div class="payment-details">
+        <div class="payment-name">
+          <p><%= payment.name %></p>
+        </div>
+        <div class="payment-amount">
+          <strong>Amount: <%= number_to_currency(payment.amount) %></strong>
+        </div>
+      </div>
+      <hr>
+      <div class="payment-created-at">
+        <small>Created at: <%= payment.created_at.to_fs(:short) %></small>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<div class="add-payment-button">
+  <%= link_to "Add Payment", new_group_payment_path %>
+</div>

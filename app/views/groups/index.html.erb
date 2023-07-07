@@ -1,0 +1,37 @@
+<% content_for :navbar_title, 'Categories'.upcase %>
+
+<section class="categories-section">
+  <% unless @groups.present? %>
+    <div class="empty-categories">
+      <p>You have no categories yet, start by adding one using the button below</p>
+    </div>
+  <% end %>
+  <% @groups.each do |group| %>
+    <%= link_to group_payments_path(group.id), class: "category-box" do %>
+      <article>
+        <figure>
+          <p>
+            <img src=<%= group.icon %> class="category-icon">
+          </p>
+        </figure>
+        <div>
+          <div>
+            <p>
+              <strong><%= group.name %></strong>
+            </p>
+          </div>
+          <hr class="category-separator">
+          <div>
+            <div>
+              <small>Payments total:
+                <%= number_to_currency(group.payments.sum(:amount)) %></small>
+            </div>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
+</section>
+<div>
+  <%= link_to "Add Category", new_group_path, class: "add-category-link" %>
+</div>
