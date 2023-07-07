@@ -1,12 +1,11 @@
 <% provide(:title, "New Payment".upcase) %>
 <% provide(:link, group_payments_path(params[:group_id])) %>
 
-<div>
+<div class="payment-form">
   <%= form_with(model: @payment, url: group_payments_path(params[:group_id])) do |form| %>
     <% if @payment.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(@payment.errors.count, "error") %>
-          prohibited this payment from being saved:</h2>
+      <div class="payment-errors">
+        <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
 
         <ul>
           <% @payment.errors.each do |error| %>
@@ -16,14 +15,14 @@
       </div>
     <% end %>
 
-    <div>
+    <div class="form-field">
       <%= form.text_field :name,
                       class: "input",
                       required: true,
                       placeholder: "Name" %>
     </div>
 
-    <div>
+    <div class="form-field">
       <%= form.number_field :amount,
                         step: :any,
                         required: true,
@@ -31,10 +30,10 @@
                         class: "input px-3" %>
     </div>
 
-    <div>
+    <div class="form-field">
       <%= form.label "Choose Categories (at least one):", class: "label" %>
       <% @groups.each do |item| %>
-        <div>
+        <div class="category-field">
           <%= check_box_tag "payment[groups][]",
           item.id,
           item.id == @group.id,
@@ -44,7 +43,7 @@
       <% end %>
     </div>
 
-    <div>
+    <div class="form-actions">
       <%= form.submit %>
     </div>
   <% end %>
