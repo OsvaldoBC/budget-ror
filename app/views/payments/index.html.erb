@@ -1,0 +1,40 @@
+<% provide(:title, "Payments".upcase) %>
+<section>
+<div><small>Payments total:
+                  <%= number_to_currency(@payments.sum(:amount)) %></small></div>
+  <% unless @payments.present? %>
+    <div>
+      <p>You have no payments yet, start by adding one using the button at the
+        bottom</p>
+    </div>
+  <% end %>
+  <% @payments.each do |payment| %>
+    <div>
+      <div>
+        <div>
+          <div>
+            <p><%= payment.name %></p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <strong>Amount:
+              <%= number_to_currency(payment.amount) %></strong>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div>
+          <small>Created at:
+            <%= payment.created_at.to_fs(:short) %></small>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</section>
+<div>
+  <%= link_to "Add Payment",
+  new_group_payment_path%>
+</div>
