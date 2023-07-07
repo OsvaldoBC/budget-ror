@@ -2,51 +2,49 @@
 /* Add style to payment index */
 
 .payments-section {
-    margin-bottom: 20px;
-  }
-  
-  .payments-total {
-    margin-bottom: 10px;
-  }
-  
-  .no-payments {
-    margin-bottom: 20px;
-  }
-  
-  .payment {
-    margin-bottom: 10px;
-  }
-  
-  .payment-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-  
-  .payment-name {
-    font-weight: bold;
-  }
-  
-  .payment-amount {
-    color: #337ab7;
-  }
-  
-  .payment-created-at {
-    font-size: 12px;
-    color: #777;
-  }
-  
-  .add-payment-button {
-    margin-top: 20px;
-    background-color: #5fb523;
-    text-align: center;
-    text-decoration: white;
+  margin-bottom: 20px;
+}
 
-  }
+.payments-total {
+  margin-bottom: 10px;
+}
 
-  /* Add style to payment new */
+.no-payments {
+  margin-bottom: 20px;
+}
 
+.payment {
+  margin-bottom: 10px;
+}
+
+.payment-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.payment-name {
+  font-weight: bold;
+}
+
+.payment-amount {
+  color: #337ab7;
+}
+
+.payment-created-at {
+  font-size: 12px;
+  color: #777;
+}
+
+.add-payment-button {
+  margin-top: 20px;
+  background-color: #5fb523;
+  text-align: center;
+  text-decoration: white;
+}
+
+/* Add style to payment new */
 
 .payment-form {
   max-width: 400px;
@@ -95,4 +93,3 @@
 .form-actions {
   text-align: right;
 }
-
